@@ -1,0 +1,26 @@
+# TabDiff 原仓库的 git 备份
+TabDiff/.git_upstream_backup/
+
+# 模型：只保留两个最终的 best_ema 模型，其余忽略
+*.pt
+!output/ckpt/*/baseline/best_ema_model_*.pt
+TabDiff/tabdiff/ckpt/
+TabDiff/tabdiff/result/
+output/result/
+
+# 候选池：只保留 TabDiff 生成的 4 个，加噪声和 SMOTE 池可以几分钟内重新生成
+TabDiff/submissions/pool/*
+!TabDiff/submissions/pool/unsw_e8000_pool5x.csv
+!TabDiff/submissions/pool/unsw_e8000_pool5x_s3.csv
+!TabDiff/submissions/pool/nslkdd_e8000_pool5x.csv
+!TabDiff/submissions/pool/nslkdd_e8000_pool2x.csv
+
+# 日志、打包文件、缓存
+TabDiff/logs/
+output/logs/
+TabDiff/eval/report_runs/
+TabDiff/debug/
+TabDiff/wandb/
+kaggle_upload/*.zip
+__pycache__/
+.DS_Store
